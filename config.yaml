@@ -1,0 +1,98 @@
+# Cryptocurrency Withdrawal Monitoring Configuration
+
+# Alchemy API Configuration
+# API keys are loaded from environment variables
+alchemy:
+  api_keys:
+    ethereum: "${ALCHEMY_API_KEY}"
+    arbitrum: "${ALCHEMY_API_KEY}"
+    base: "${ALCHEMY_API_KEY}"
+    sonic: "${ALCHEMY_API_KEY}"
+    blast: "${ALCHEMY_API_KEY}"
+
+# Telegram Bot Configuration
+# Credentials are loaded from environment variables
+telegram:
+  bot_token: "${TELEGRAM_BOT_TOKEN}"
+  chat_id: "${TELEGRAM_CHAT_ID}"
+
+# Exchange Contract Addresses
+exchange_contracts:
+  ethereum: "0x1171651a1917c7de22cf2047d1d7cb9d97039811"
+  arbitrum: "0x2E89ECF3945fcBdA70770f59F3833aC7D08b83c0"
+  base: "0x07607d79Bc28669bbF7ec6cfC7Ae68AA6964C762"   
+  sonic: "0xaC63e55a9D6B331987072f98beDf216F51370E28"  
+  blast: "0x212f3a03b0e67f2d0afc7bca138707cf9fd6a0e6"  
+
+# Monitored Token Addresses and Low Balance Thresholds
+tokens:
+  ethereum:
+    usdt:
+      address: "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+      threshold: 10000  
+  
+  arbitrum:
+    usdc:
+      address: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+      threshold: 10000  
+  
+  base:
+    usdc:
+      address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+      threshold: 2000  
+  
+  sonic:
+    usdc:
+      address: "0x29219dd400f2Bf60E5a23d13Be72B486D4038894"
+      threshold: 10000  
+  
+  blast:
+    usdb:
+      address: "0x4300000000000000000000000000000000000003"
+      threshold: 10000  
+
+# Monitoring Configuration
+monitoring:
+  polling_interval_minutes: 10  # How often to check for new transactions
+  balance_check_interval_minutes: 60  # How often to check balances
+  initial_block_range: 20  # Number of blocks to check on first run
+  report_time_utc: "15:10"  # Daily report time in UTC
+
+# Chain Configuration
+chains:
+  ethereum:
+    name: "Ethereum Mainnet"
+    chain_id: 1
+    explorer_url: "https://etherscan.io"
+    rpc_url: "https://eth-mainnet.g.alchemy.com/v2/"
+  
+  arbitrum:
+    name: "Arbitrum One"
+    chain_id: 42161
+    explorer_url: "https://arbiscan.io"
+    rpc_url: "https://arb-mainnet.g.alchemy.com/v2/"
+  
+  base:
+    name: "Base"
+    chain_id: 8453
+    explorer_url: "https://basescan.org"
+    rpc_url: "https://base-mainnet.g.alchemy.com/v2/"
+  
+  sonic:
+    name: "Sonic"
+    chain_id: 146
+    explorer_url: "https://sonicscan.org"
+    rpc_url: "https://sonic-mainnet.g.alchemy.com/v2/"
+  
+  blast:
+    name: "Blast"
+    chain_id: 81457
+    explorer_url: "https://blastscan.io"
+    rpc_url: "https://blast-mainnet.g.alchemy.com/v2/"
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "withdrawal_monitor.log"
+  max_file_size_mb: 10
+  backup_count: 5
