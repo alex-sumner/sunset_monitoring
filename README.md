@@ -10,6 +10,7 @@ Monitoring cryptocurrency withdrawal transactions and contract balances across m
 - **Daily Reporting**: Generates comprehensive daily reports via Telegram
 - **Telegram Integration**: Sends real-time alerts and reports to configured chat
 - **Robust Error Handling**: Includes retry mechanisms and comprehensive logging
+- **Retrieve Ethereum signer addresses fronm AWS KMS public keys**: `address_from_key.py`
 
 ## Prerequisites
 
@@ -23,6 +24,8 @@ Monitoring cryptocurrency withdrawal transactions and contract balances across m
 1. Clone or download the project files
 2. Install dependencies:
    ```bash
+   python -m venv .venv
+   source .venv/bin/activate        # or .venv\Scripts\activate on Windows
    pip install -r requirements.txt
    ```
 
